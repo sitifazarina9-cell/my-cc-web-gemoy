@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Sederhana</title>
+    <style>
+        body {
+            font-family: Arial;
+            background-color: hsl(216, 81%, 75%);
+            text-align: center;
+            padding-top: 100px;
+        }
+
+        .box {
+            background: rgb(199, 222, 248);
+            width: 300px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgb(203, 219, 255);
+        }
+
+        input {
+            width: 90%;
+            padding: 8px;
+            margin: 5px 0;
+        }
+
+        button {
+            padding: 8px 15px;
+            background-color: pink;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: hotpink;
+        }
+    </style>
+</head>
+<body>
+<audio id="bg-music" autoplay loop>
+  <source src="music/music.mp3" type="audio/mpeg">
+  Browser kamu tidak support audio.
+</audio>
+
+<!-- Tombol play/pause -->
+<button id="music-btn">⏸️ Pause Music</button>
+<div class="box">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username"><br>
+    <input type="password" id="password" placeholder="Password"><br>
+    <button onclick="login()">Masuk</button>
+    <p id="hasil"></p>
+</div>
+
+<script>
+function login() {
+    var user = document.getElementById("username").value;
+    var pass = document.getElementById("password").value;
+
+   if(user === "cskntl" && pass === "fazrincantik") {
+    window.location.href = "home.html";
+}else{
+    document.getElementsById("hasil").InnerHTML= "Bye Bye MONYETT";
+}
+}
+</script>
+<script>
+const music = document.getElementById("bg-music");
+const btn = document.getElementById("music-btn");
+
+btn.onclick = () => {
+    if(music.paused){
+        music.play();
+        btn.textContent = "⏸️ Pause Music";
+    } else {
+        music.pause();
+        btn.textContent = "▶️ Play Music";
+    }
+}
+</script>
+<script>
+const lbModal = document.getElementById("lightbox");
+const lbImg = document.getElementById("lightbox-img");
+const caption = document.getElementById("caption");
+const closeBtn = document.querySelector(".close");
+
+document.querySelectorAll(".gallery img").forEach(img => {
+    img.onclick = function(){
+        lbModal.style.display = "block";
+        lbImg.src = this.src;
+        caption.textContent = this.alt || "Foto Aesthetic 🌷";
+    }
+});
+
+closeBtn.onclick = function() {
+    lbModal.style.display = "none";
+}
+
+// Klik di luar gambar untuk tutup
+lbModal.onclick = function(e){
+    if(e.target === lbModal) lbModal.style.display = "none";
+}
+</script>
+</body>
+
+</html>

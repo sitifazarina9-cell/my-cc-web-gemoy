@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- MUSIC -->
+<audio id="bg-music" autoplay loop>
+  <source src="music/bgmusic.mp3" type="audio/mpeg">
+</audio>
+<button id="music-btn">⏸️ Pause Music</button>
+
+<!-- CARD CENTER -->
+<div class="home-card">
+    <h1>HELLOO MY FAVORITE PERSON, MI AMOR 💖</h1>
+    <a href="gallery.html"><button>PRETTY GIRLL! IS HERE BABE!</button></a>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("music-btn");
+
+    btn.onclick = function() {
+        if(music.paused){
+            music.play();
+            btn.textContent = "⏸️ Pause Music";
+        } else {
+            music.pause();
+            btn.textContent = "▶️ Play Music";
+        }
+    }
+});
+</script>
+
+</body>
+</html>
